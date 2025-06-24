@@ -17,9 +17,9 @@ class NasaApiService {
     }
   }
 
-  Future<List<RoverPhoto>> fetchPhotosBySol(String roverName, int sol) async {
+  Future<List<RoverPhoto>> fetchPhotosBySol(String roverName, int sol, int page) async {
     final url = Uri.parse(
-      '${ApiConfig.baseUrl}/rovers/$roverName/photos?sol=$sol&api_key=${ApiConfig.apiKey}',
+      '${ApiConfig.baseUrl}/rovers/$roverName/photos?sol=$sol&page=$page&api_key=${ApiConfig.apiKey}',
     );
 
     final response = await http.get(url);
