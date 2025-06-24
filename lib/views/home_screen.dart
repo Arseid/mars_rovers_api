@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import '../widgets/drawer_menu.dart';
-import '../widgets/rover_info_card.dart';
-import '../widgets/sol_list_view.dart';
+import '../services/nasa_api_service.dart';
+import '../models/rover_manifest.dart';
+import '../widgets/waiting_page.dart';
+import '../widgets/rover_data_section.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -13,31 +15,36 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   String selectedRover = 'Curiosity';
 
-  final roverInfo = {
-    "launch_date": "26-11-2011",
-    "landing_date": "06-08-2012",
-    "status": "active",
-    "max_sol": 4102,
-    "max_date": "19-02-2024",
-    "total_photos": 695670,
-  };
+  bool isLoading = true;
+  RoverManifest? manifest;
 
-  final sols = [
-    {"sol": 0, "date": "06-08-2012", "photos": 3702},
-    {"sol": 1, "date": "07-08-2012", "photos": 16},
-    {"sol": 2, "date": "08-08-2012", "photos": 74},
-    {"sol": 3, "date": "09-08-2012", "photos": 338},
-    {"sol": 10, "date": "16-08-2012", "photos": 26},
-    {"sol": 12, "date": "18-08-2012", "photos": 32},
-    {"sol": 13, "date": "19-08-2012", "photos": 208},
-    {"sol": 14, "date": "20-08-2012", "photos": 70},
-  ];
+  final _apiService = NasaApiService();
+
+  @override
+  void initState() {
+    super.initState();
+    _fetchRoverManifest();
+  }
+
+  Future<void> _fetchRoverManifest([String? rover]) async {
+    setState(() => isLoading = true);
+
+    try {
+      final data = await _apiService.fetchManifest((rover ?? selectedRover).toLowerCase());
+      setState(() {
+        manifest = data;
+        isLoading = false;
+      });
+    } catch (e) {
+      debugPrint('Failed to fetch rover data: $e');
+      setState(() => isLoading = false);
+    }
+  }
 
   void _selectRover(String rover) {
     if (rover == selectedRover) return;
-    setState(() {
-      selectedRover = rover;
-    });
+    setState(() => selectedRover = rover);
+    _fetchRoverManifest(rover);
   }
 
   @override
@@ -52,17 +59,12 @@ class _HomeScreenState extends State<HomeScreen> {
       drawer: DrawerMenu(
         onRoverSelected: _selectRover,
       ),
-      body: Column(
-          children: [
-            Padding(padding: const EdgeInsets.all(5),
-            child: RoverInfoCard(roverName: selectedRover, info: roverInfo)
+      body: isLoading || manifest == null
+          ? const WaitingPage()
+          : RoverDataSection(
+              roverName: selectedRover,
+              manifest: manifest!,
             ),
-            const SizedBox(height: 5),
-            Expanded(
-              child: SolListView(sols: sols)
-            )
-          ],
-        ),
     );
   }
 }

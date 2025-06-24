@@ -38,4 +38,15 @@ class RoverManifest {
       sols: sols,
     );
   }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'launch_date': launchDate,
+      'landing_date': landingDate,
+      'status': status,
+      'max_sol': maxSol,
+      'max_date': maxDate,
+      'total_photos': totalPhotos,
+    };
+  }
 }
