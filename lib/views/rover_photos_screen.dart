@@ -70,7 +70,7 @@ class _RoverPhotosScreenState extends State<RoverPhotosScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFFAF0F2),
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text('${widget.roverName} sol ${widget.sol} photos'),
         backgroundColor: Colors.deepOrange[200],

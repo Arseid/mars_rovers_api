@@ -20,10 +20,10 @@ class DrawerMenu extends StatelessWidget {
           const SizedBox(height: 30),
           const Divider(
             color: Color(0xFFDBC6C0),
-            indent: 25,
-            endIndent: 25,
+            indent: 30,
+            endIndent: 30,
           ),
-          const SizedBox(height: 14),
+          const SizedBox(height: 18),
           DrawerMenuRoverList(onRoverSelected: onRoverSelected),
         ],
       ),
