@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../widgets/drawer_menu.dart';
 import '../widgets/rover_info_card.dart';
-import '../widgets/sol_list_item.dart';
+import '../widgets/sol_list_view.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -52,28 +52,17 @@ class _HomeScreenState extends State<HomeScreen> {
       drawer: DrawerMenu(
         onRoverSelected: _selectRover,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
+      body: Column(
           children: [
-            RoverInfoCard(roverName: selectedRover, info: roverInfo),
-            const SizedBox(height: 16),
+            Padding(padding: const EdgeInsets.all(5),
+            child: RoverInfoCard(roverName: selectedRover, info: roverInfo)
+            ),
+            const SizedBox(height: 5),
             Expanded(
-              child: ListView.builder(
-                itemCount: sols.length,
-                itemBuilder: (context, index) {
-                  final solMap = sols[index];
-                  return SolListItem(
-                    solNumber: solMap['sol'] as int,
-                    date: solMap['date'] as String,
-                    photoCount: solMap['photos'] as int,
-                  );
-                },
-              ),
+              child: SolListView(sols: sols)
             )
           ],
         ),
-      ),
     );
   }
 }

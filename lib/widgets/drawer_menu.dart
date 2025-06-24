@@ -29,17 +29,10 @@ class DrawerMenu extends StatelessWidget {
 
           const SizedBox(height: 30),
 
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(
-                width: 200,
-                child: Divider(
-                  thickness: 1,
-                  color: Color(0xFFDBC6C0),
-                ),
-              ),
-            ],
+          const Divider(
+            color: Color(0xFFDBC6C0),
+            indent: 25,
+            endIndent: 25,
           ),
 
           const SizedBox(height: 14),

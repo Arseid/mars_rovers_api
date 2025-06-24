@@ -21,7 +21,7 @@ class SolListItem extends StatelessWidget {
           style: const TextStyle(
             color: Color(0xFF607D8B),
             fontWeight: FontWeight.bold,
-            fontSize: 16,
+            fontSize: 20,
           ),
           children: [
             TextSpan(
@@ -39,7 +39,7 @@ class SolListItem extends StatelessWidget {
         style: const TextStyle(
           color: Colors.red,
           fontWeight: FontWeight.bold,
-          fontSize: 16,
+          fontSize: 20,
         ),
       ),
     );
