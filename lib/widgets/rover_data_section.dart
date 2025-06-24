@@ -34,6 +34,7 @@ class RoverDataSection extends StatelessWidget {
               "photos": sol.totalPhotos,
             })
                 .toList(),
+            roverName: roverName,
           ),
         ),
       ],

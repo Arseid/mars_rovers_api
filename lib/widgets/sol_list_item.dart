@@ -4,17 +4,20 @@ class SolListItem extends StatelessWidget {
   final int solNumber;
   final String date;
   final int photoCount;
+  final VoidCallback? onTap;
 
   const SolListItem({
     super.key,
     required this.solNumber,
     required this.date,
     required this.photoCount,
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      onTap: onTap,
       title: RichText(
         text: TextSpan(
           text: 'Sol $solNumber',
