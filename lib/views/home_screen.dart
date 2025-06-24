@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/drawer_menu.dart';
 import '../widgets/rover_info_card.dart';
 import '../widgets/sol_list_item.dart';
 
@@ -33,11 +34,10 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
 
   void _selectRover(String rover) {
+    if (rover == selectedRover) return;
     setState(() {
       selectedRover = rover;
-      // Charger ici les vraies données plus tard
     });
-    Navigator.pop(context);
   }
 
   @override
@@ -49,22 +49,8 @@ class _HomeScreenState extends State<HomeScreen> {
         centerTitle: true,
         backgroundColor: Colors.deepOrange[200],
       ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(color: Colors.deepOrange),
-              child: Text('Select a Rover',
-                  style: TextStyle(color: Colors.white, fontSize: 20)),
-            ),
-            for (var rover in ['Curiosity', 'Opportunity', 'Spirit'])
-              ListTile(
-                title: Text(rover),
-                onTap: () => _selectRover(rover),
-              ),
-          ],
-        ),
+      drawer: DrawerMenu(
+        onRoverSelected: _selectRover,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
