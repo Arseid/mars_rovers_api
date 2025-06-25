@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../models/rover_photo.dart';
 import '../services/nasa_api_service.dart';
 import '../widgets/pagination_button.dart';
-import '../widgets/photo_item.dart';
+import '../widgets/photo_list.dart';
 import '../widgets/waiting_page.dart';
 
 class RoverPhotosScreen extends StatefulWidget {
@@ -70,46 +70,32 @@ class _RoverPhotosScreenState extends State<RoverPhotosScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: Text('${widget.roverName} sol ${widget.sol} photos'),
-        backgroundColor: Colors.deepOrange[200],
-        centerTitle: true,
-      ),
-      body: isLoading
-          ? const WaitingPage()
-          : Column(
-        children: [
-          const SizedBox(height: 12),
-          Text(
-            'Page ${currentPage + 1} / $totalPages',
-            style: const TextStyle(fontSize: 18),
-          ),
-          const SizedBox(height: 10),
-          Expanded(
-            child: ListView.separated(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
-              itemCount: photos.length,
-              separatorBuilder: (_, __) => const SizedBox(height: 12),
-              itemBuilder: (_, index) {
-                final photo = photos[index];
-                return PhotoItem(
-                  imageUrl: photo.imgSrc,
-                  cameraName: photo.camera.name,
-                );
-              },
-            ),
-          ),
-          const SizedBox(height: 10),
-          PaginationButtons(
-            hasPrevious: currentPage > 0,
-            hasNext: currentPage < totalPages - 1,
-            onPrevious: _goToPreviousPage,
-            onNext: _goToNextPage,
-          ),
-          const SizedBox(height: 16),
-        ],
-      ),
-    );
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          title: Text('${widget.roverName} sol ${widget.sol} photos'),
+          backgroundColor: Colors.deepOrange[200],
+          centerTitle: true,
+        ),
+        body: isLoading
+            ? const WaitingPage()
+            : Column(
+                children: [
+                  const SizedBox(height: 12),
+                  Text(
+                    'Page ${currentPage + 1} / $totalPages',
+                    style: const TextStyle(fontSize: 18),
+                  ),
+                  const SizedBox(height: 10),
+                  Expanded(child: PhotoList(photos: photos)),
+                  const SizedBox(height: 10),
+                  PaginationButtons(
+                    hasPrevious: currentPage > 0,
+                    hasNext: currentPage < totalPages - 1,
+                    onPrevious: _goToPreviousPage,
+                    onNext: _goToNextPage,
+                  ),
+                  const SizedBox(height: 16),
+                ],
+              ));
   }
 }

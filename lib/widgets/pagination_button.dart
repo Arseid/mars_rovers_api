@@ -41,8 +41,8 @@ class PaginationButtons extends StatelessWidget {
     return ElevatedButton(
       onPressed: enabled ? onPressed : null,
       style: ElevatedButton.styleFrom(
-        backgroundColor: const Color(0xFFF4DED9),
-        foregroundColor: Colors.deepOrange,
+        backgroundColor: const Color(0xFFFAF0F1),
+        foregroundColor: const Color(0xFF963700),
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         elevation: 0,
