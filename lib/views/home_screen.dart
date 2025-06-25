@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mars_rover_api/theme/app_colors.dart';
 import '../widgets/drawer_menu.dart';
 import '../services/nasa_api_service.dart';
 import '../models/rover_manifest.dart';
@@ -50,11 +51,11 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.background,
       appBar: AppBar(
-        title: const Text('Mars Rover Photos'),
+        title: const Text('Mars Rover Photos', style: TextStyle(color: AppColors.primaryText)),
         centerTitle: true,
-        backgroundColor: Colors.deepOrange[200],
+        backgroundColor: AppColors.appBarColor,
       ),
       drawer: DrawerMenu(
         onRoverSelected: _selectRover,

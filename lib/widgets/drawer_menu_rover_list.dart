@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mars_rover_api/theme/app_colors.dart';
 
 class DrawerMenuRoverList extends StatelessWidget {
   final Function(String) onRoverSelected;
@@ -21,7 +22,7 @@ class DrawerMenuRoverList extends StatelessWidget {
             },
             child: Text(
               rover,
-              style: const TextStyle(fontSize: 25),
+              style: const TextStyle(fontSize: 25, color: AppColors.primaryText),
             ),
           ),
         );

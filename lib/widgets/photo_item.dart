@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../theme/app_colors.dart';
+
 class PhotoItem extends StatelessWidget {
   final String imageUrl;
   final String cameraName;
@@ -45,12 +47,12 @@ class PhotoItem extends StatelessWidget {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
               decoration: BoxDecoration(
-                color: Colors.black,
+                color: AppColors.overlay,
                 borderRadius: BorderRadius.circular(4),
               ),
               child: Text(
                 cameraName,
-                style: const TextStyle(color: Colors.white),
+                style: const TextStyle(color: AppColors.overlayText),
               ),
             ),
           ),

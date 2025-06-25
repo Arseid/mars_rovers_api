@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'drawer_menu_header.dart';
 import 'drawer_menu_rover_list.dart';
+import '../theme/app_colors.dart';
 
 class DrawerMenu extends StatelessWidget {
   final Function(String) onRoverSelected;
@@ -11,7 +12,7 @@ class DrawerMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: const Color(0xFFFAF0F2),
+      backgroundColor: AppColors.drawerBackground,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -19,7 +20,7 @@ class DrawerMenu extends StatelessWidget {
           const DrawerMenuHeader(),
           const SizedBox(height: 30),
           const Divider(
-            color: Color(0xFFDBC6C0),
+            color: AppColors.divider,
             indent: 30,
             endIndent: 30,
           ),

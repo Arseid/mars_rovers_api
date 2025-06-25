@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../theme/app_colors.dart';
+
 class DrawerMenuHeader extends StatelessWidget {
   const DrawerMenuHeader({super.key});
 
@@ -14,7 +16,7 @@ class DrawerMenuHeader extends StatelessWidget {
         Center(
           child: Text(
             'Mars Rovers',
-            style: TextStyle(fontSize: 25),
+            style: TextStyle(fontSize: 25, color: AppColors.primaryText),
           ),
         ),
       ],

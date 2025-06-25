@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../theme/app_colors.dart';
+
 class SolListItem extends StatelessWidget {
   final int solNumber;
   final String date;
@@ -22,7 +24,7 @@ class SolListItem extends StatelessWidget {
         text: TextSpan(
           text: 'Sol $solNumber',
           style: const TextStyle(
-            color: Color(0xFF607D8B),
+            color: AppColors.secondaryText,
             fontWeight: FontWeight.bold,
             fontSize: 20,
           ),
@@ -30,7 +32,7 @@ class SolListItem extends StatelessWidget {
             TextSpan(
               text: ' on $date',
               style: const TextStyle(
-                color: Colors.black,
+                color: AppColors.primaryText,
                 fontWeight: FontWeight.normal,
               ),
             ),
@@ -40,7 +42,7 @@ class SolListItem extends StatelessWidget {
       trailing: Text(
         '$photoCount',
         style: const TextStyle(
-          color: Colors.red,
+          color: AppColors.accentText,
           fontWeight: FontWeight.bold,
           fontSize: 20,
         ),

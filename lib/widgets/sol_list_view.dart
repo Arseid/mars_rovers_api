@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../theme/app_colors.dart';
 import 'sol_list_item.dart';
 import '../views/rover_photos_screen.dart';
 
@@ -33,7 +34,7 @@ class SolListView extends StatelessWidget {
         );
       },
       separatorBuilder: (context, index) => const Divider(
-        color: Color(0xFF607D8B),
+        color: AppColors.secondaryText,
         height: 0.5,
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mars_rover_api/theme/app_colors.dart';
 
 class RoverInfoCard extends StatelessWidget {
   final String roverName;
@@ -13,18 +14,20 @@ class RoverInfoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const labelStyle = TextStyle(
+      color: AppColors.primaryText,
       fontWeight: FontWeight.bold,
       fontSize: 16,
     );
 
     const valueStyle = TextStyle(
+      color: AppColors.primaryText,
       fontSize: 16,
     );
 
     return Container(
       padding: const EdgeInsets.fromLTRB(10, 10, 10, 5),
       decoration: BoxDecoration(
-        color: const Color(0xFFDECECA),
+        color: AppColors.cardBackground,
         borderRadius: BorderRadius.circular(10),
         boxShadow: const [
           BoxShadow(color: Colors.black38, blurRadius: 10, offset: Offset(0, 4)),
@@ -34,7 +37,7 @@ class RoverInfoCard extends StatelessWidget {
         children: [
           Text(
             roverName,
-            style: const TextStyle(fontSize: 30),
+            style: const TextStyle(fontSize: 30, color: AppColors.primaryText),
           ),
           const SizedBox(height: 8),
           Row(

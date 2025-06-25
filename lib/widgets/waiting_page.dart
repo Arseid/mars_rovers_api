@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mars_rover_api/theme/app_colors.dart';
 
 class WaitingPage extends StatelessWidget {
   final String message;
@@ -18,6 +19,7 @@ class WaitingPage extends StatelessWidget {
           message,
           style: const TextStyle(
             fontSize: 25,
+            color: AppColors.primaryText
           ),
         ),
       ),

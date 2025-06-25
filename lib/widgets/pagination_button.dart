@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../theme/app_colors.dart';
+
 class PaginationButtons extends StatelessWidget {
   final bool hasPrevious;
   final bool hasNext;
@@ -41,8 +43,8 @@ class PaginationButtons extends StatelessWidget {
     return ElevatedButton(
       onPressed: enabled ? onPressed : null,
       style: ElevatedButton.styleFrom(
-        backgroundColor: const Color(0xFFFAF0F1),
-        foregroundColor: const Color(0xFF963700),
+        backgroundColor: AppColors.buttonBackground,
+        foregroundColor: AppColors.buttonText,
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         elevation: 0,
