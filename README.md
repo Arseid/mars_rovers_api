@@ -21,8 +21,8 @@ Both the base URL and the API key are stored in a `.env` file.
 ### Sample `.env` file:
 
 ```env
-API_BASE_URL=https://api.nasa.gov/mars-photos/api/v1
-NASA_API_KEY=your_api_key_here
+FLUTTER_API_BASE_URL=https://api.nasa.gov/mars-photos/api/v1
+FLUTTER_API_KEY=your_api_key_here
 ```
 
 ## Getting Started
